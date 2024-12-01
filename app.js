@@ -5,20 +5,112 @@ const hamburgerMenu = document.querySelector('.fa-bars');
 const cross = document.querySelector('.fa-xmark');
 const userName = document.getElementById('user-name');
 const greeting = document.getElementById('greeting');
+const message = document.getElementById('message');
 
-const urlThoth = "https://zenquotes.io/api/random";
-async function fetchQuote() {
-    try {
-        const response = await fetch(urlThoth);
-        const data = await response.json();
-        console.log(data);
-       
-    } catch (error) {
-        console.error('Error fetching quote:', error);
-    }
-}
-fetchQuote();
+const meditationAffirmations = [
+    "Keep it up.",
+    "You can do it.",
+    "You are awesome.",
+    "Breathe deeply, stay calm.",
+    "Trust the process.",
+    "Focus on the present moment.",
+    "You are strong and capable.",
+    "Inner peace is within you.",
+    "You are enough.",
+    "Stay grounded and centered.",
+    "Let go of all worries.",
+    "Believe in yourself.",
+    "Take it one step at a time.",
+    "You have what it takes.",
+    "Embrace the now.",
+    "Release tension, invite peace.",
+    "You are resilient.",
+    "Choose positivity.",
+    "Inner strength guides you.",
+    "This too shall pass.",
+    "Gratitude fills your heart.",
+    "Stay kind to yourself.",
+    "Find joy in small moments.",
+    "Patience is your strength.",
+    "You are worthy of happiness.",
+    "Every breath brings clarity.",
+    "You are calm and relaxed.",
+    "You are surrounded by peace.",
+    "Happiness flows within you.",
+    "Life is a beautiful journey.",
+    "Accept yourself fully.",
+    "Your mind is at ease.",
+    "You are in control of your thoughts.",
+    "Peace begins with you.",
+    "You are open to positive change.",
+    "Release and let go.",
+    "You deserve love and respect.",
+    "Embrace your unique journey.",
+    "Every moment is an opportunity.",
+    "You are aligned with the universe.",
+    "Abundance flows into your life.",
+    "Choose love over fear.",
+    "You are safe and secure.",
+    "Your mind is clear and focused.",
+    "Compassion guides your actions.",
+    "Success is within your reach.",
+    "You radiate positivity.",
+    "Challenges make you stronger.",
+    "You are filled with gratitude.",
+    "Balance and harmony surround you.",
+    "You trust yourself completely.",
+    "Your energy is limitless.",
+    "Happiness is your natural state.",
+    "Stay present and connected.",
+    "You are at peace with yourself.",
+    "Your potential is infinite.",
+    "Kindness comes naturally to you.",
+    "Every breath brings renewal.",
+    "You create your own reality.",
+    "You are proud of yourself.",
+    "The universe supports you.",
+    "You are free from negativity.",
+    "Your heart is open to joy.",
+    "You shine your light brightly.",
+    "Peace flows through every cell.",
+    "You are calm, strong, and balanced.",
+    "Joy is your birthright.",
+    "You attract positivity.",
+    "Your mind is your sanctuary.",
+    "Every day brings new opportunities.",
+    "You trust the journey of life.",
+    "You are connected to the universe.",
+    "Love and light surround you.",
+    "You are the creator of your destiny.",
+    "Inner calm is your superpower.",
+    "You are grateful for this moment.",
+    "Your soul is at peace.",
+    "You are fearless and brave.",
+    "Your dreams are valid.",
+    "Peace is your natural state.",
+    "You are confident and capable.",
+    "You are open to new beginnings.",
+    "You are free to be yourself.",
+    "Clarity guides your decisions.",
+    "You are a beacon of hope.",
+    "You inspire others by being you.",
+    "You are open to infinite possibilities.",
+    "You radiate love and compassion.",
+    "You are a magnet for positivity.",
+    "Your inner strength is unshakable.",
+    "Peace begins with a deep breath.",
+    "You are aligned with your purpose.",
+    "Your thoughts are powerful and creative.",
+    "You have the power to create change.",
+    "You are relaxed and at peace.",
+    "Your body and mind are in harmony.",
+    "This moment is yours to embrace."
+];
 
+setInterval(()=>{
+    const affirmation = meditationAffirmations[Math.floor(Math.random() * meditationAffirmations.length)];
+    message.innerHTML = affirmation;
+},10000)
 
 
 

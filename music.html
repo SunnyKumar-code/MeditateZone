@@ -14,7 +14,7 @@
         <nav class="navbar">
             <div class="logo">MeditateZone</div>
             <div class="menu">
-                <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#"><i class="fa-solid fa-house"></i> Home</a>
                 <a href="./music.html"><i class="fa-solid fa-music"></i> Music</a>
                 <a href="#"><i class="fa-solid fa-mountain"></i> Scene</a>
                 <a href="#"><i class="fa-solid fa-wind"></i> Breathe Well</a>
@@ -38,17 +38,23 @@
                 <p class="musicSongName">Song Name</p>
                 <p class="musicSongAlbum">Album Name</p>
                 <div class="musicControls">
-                    <div class="time">
-                        <span class="musicCurrentTime">00:00</span>
-                        <span class="musicTotalTime">00:00</span>
+                    <div class="musicProgressBar">
+                        <span class="musicCurrentTime">0:00</span>
+                    <input type="range" class="musicRangeSlider" min="0" max="100" value="0" step="1">
+                    <span class="musicTotalTime">0:00</span>
                     </div>
                     
-                    <div class="buttons">
-                       
-                        <i class="fa-solid fa-circle-play playPauseBtn"></i>
-                       
+                    <div class="musicControlsButtons">
+                        <button class="muteButton">
+                            <i class="fa-solid fa-volume-high"></i>
+                          </button>
+                      <button class="play"><i class="fa-solid fa-circle-play playPauseBtn"></i></button>
+                          <button class="loopButton">
+                            <i  class="fa-solid fa-repeat"></i>
+                          </button>
                     </div>
-                </div>
+                
+                  </div>
             </div>
             <audio></audio>
         </div>

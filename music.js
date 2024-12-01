@@ -385,23 +385,50 @@ closeVideoButton.addEventListener("click", () => {
 
 // ************************ Music Slider Functionality
 mainaudio.addEventListener("timeupdate", () => {
-  const current = Math.floor(mainaudio.currentTime);
-  const total = Math.floor(mainaudio.duration);
-
-  const currentMinutes = Math.floor(current / 60);
-  const currentSeconds = current % 60;
-  const totalMinutes = Math.floor(total / 60);
-  const totalSeconds = total % 60;
-
-  musicCurrentTime.textContent = `${currentMinutes}:${currentSeconds
-    .toString()
-    .padStart(2, "0")}`;
-  musicTotalTime.textContent = `${totalMinutes}:${totalSeconds
-    .toString()
-    .padStart(2, "0")}`;
-
-  const progress = (mainaudio.currentTime / mainaudio.duration) * 100;
-  musicSlider.style.width = `${progress}%`;
+    const progress = (mainaudio.currentTime / mainaudio.duration) * 100;
+    musicSlider.value = progress;
+  
+    const current = Math.floor(mainaudio.currentTime);
+    const total = Math.floor(mainaudio.duration);
+  
+    const currentMinutes = Math.floor(current / 60);
+    const currentSeconds = current % 60;
+    const totalMinutes = Math.floor(total / 60);
+    const totalSeconds = total % 60;
+  
+    musicCurrentTime.textContent = `${currentMinutes}:${currentSeconds
+      .toString()
+      .padStart(2, "0")}`;
+    musicTotalTime.textContent = `${totalMinutes}:${totalSeconds
+      .toString()
+      .padStart(2, "0")}`;
+  });
+  
+  // Allow seeking using the slider
+  musicSlider.addEventListener("input", () => {
+    const seekTime = (mainaudio.duration * musicSlider.value) / 100;
+    mainaudio.currentTime = seekTime;
+  });
+  const muteButton = document.querySelector(".muteButton");
+muteButton.addEventListener("click", () => {
+  if (mainaudio.muted) {
+    mainaudio.muted = false;
+    muteButton.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+  } else {
+    mainaudio.muted = true;
+    muteButton.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+  }
 });
+const loopButton = document.querySelector(".loopButton");
+loopButton.addEventListener("click", () => {
+  mainaudio.loop = !mainaudio.loop;
+  if (mainaudio.loop) {
+    loopButton.classList.add("active");
+  } else {
+    loopButton.classList.remove("active");
+  }
+});
+
+  
 
 
